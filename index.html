@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paradiso - Icaraí de Amontada | RE/MAX Seu Imóvel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --gold-primary: #b8860b;
+        --gold-secondary: #c9a961;
+        --gold-dark: #9a7209;
+        --gold-light: #daa520;
+        --cyan-primary: #00acc1;
+        --cyan-dark: #008fa1;
+        --text-dark: #333;
+        --text-medium: #555;
+        --text-light: #666;
+        --text-muted: #999;
+        --bg-light: #fafafa;
+        --white: #fff;
+        --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.15);
+        --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.2);
+        --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+      body {
+        font-family: Montserrat, sans-serif;
+        color: var(--text-dark);
+        background: var(--white);
+        line-height: 1.6;
+      }
+      img,
+      iframe,
+      video {
+        max-width: 100%;
+        display: block;
+      }
+      .header {
+        background: var(--white);
+        padding: 15px 8%;
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        text-align: center;
+      }
+      .header-logo {
+        height: 60px;
+        display: inline-block;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        background-image: url(banner/banner1.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 80px 8%;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+      .hero-logo-container {
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 450px;
+        z-index: 2;
+      }
+      .hero-logo {
+        width: 100%;
+        display: block;
+        filter: brightness(1.5) contrast(1.2);
+      }
+      .hero-form-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 380px;
+      }
+      .hero-form-title {
+        color: var(--white);
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 18px;
+        line-height: 1.35;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      }
+      .hero-form {
+        background: var(--gold-primary);
+        padding: 25px 30px;
+        border-radius: 28px;
+        box-shadow: var(--shadow-xl);
+      }
+      .hero-form input {
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 12px;
+        border: none;
+        font-size: 15px;
+        font-family: Montserrat, sans-serif;
+        margin-bottom: 16px;
+        transition: all 0.3s ease;
+      }
+      .hero-form input:focus {
+        outline: 3px solid var(--gold-secondary);
+        transform: scale(1.02);
+      }
+      .hero-form input::placeholder {
+        color: #aaa;
+      }
+      .hero-form-button {
+        width: 100%;
+        padding: 16px;
+        margin-top: 6px;
+        background: var(--gold-primary);
+        color: var(--white);
+        border: none;
+        border-radius: 24px;
+        font-size: 17px;
+        font-weight: 800;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        transition: all 0.3s ease;
+        font-family: Montserrat, sans-serif;
+      }
+      .hero-form-button:hover {
+        background: var(--gold-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      }
+      .nav-menu-wrapper {
+        background: linear-gradient(
+          90deg,
+          var(--gold-secondary),
+          var(--gold-primary),
+          var(--gold-secondary)
+        );
+        width: 100%;
+        padding: 25px 0;
+        position: relative;
+        z-index: 100;
+      }
+      .nav-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 8%;
+      }
+      .nav-menu button {
+        background: var(--gold-primary);
+        color: var(--white);
+        border: none;
+        padding: 16px 45px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-family: Montserrat, sans-serif;
+        box-shadow: var(--shadow-md);
+        width: 100%;
+        max-width: 300px;
+      }
+      .nav-menu button:hover {
+        background: var(--gold-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .section-title h2 {
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--gold-primary);
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+        letter-spacing: 2px;
+      }
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gold-primary);
+        border-radius: 2px;
+      }
+      .section-sobre {
+        background: var(--bg-light);
+        padding: 100px 8%;
+        position: relative;
+        z-index: 100;
+      }
+      .sobre-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .sobre-content h2 {
+        font-size: 52px;
+        font-weight: 800;
+        color: var(--gold-primary);
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .sobre-content p {
+        font-size: 18px;
+        color: var(--text-medium);
+        line-height: 1.9;
+        text-align: justify;
+      }
+      .sobre-content .highlight {
+        color: var(--gold-primary);
+        font-weight: 800;
+      }
+      .sobre-map img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: var(--shadow-lg);
+        display: block;
+      }
+      .section-peek {
+        position: relative;
+        height: 520px;
+        overflow: hidden;
+        background: var(--white);
+        z-index: 1;
+      }
+      .peek-bg {
+        position: absolute;
+        inset: -80px 0;
+        background-image: url(banner/banner1.png);
+        background-size: cover;
+        background-position: center;
+        transform: translate3d(0, 0, 0) scale(1.12);
+        will-change: transform;
+      }
+      .section-peek::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          var(--bg-light) 0%,
+          transparent 35%,
+          transparent 65%,
+          var(--white) 100%
+        );
+        z-index: 2;
+        pointer-events: none;
+      }
+      .section-detalhes {
+        background: var(--white);
+        padding: 100px 8%;
+        position: relative;
+        z-index: 100;
+      }
+      .detalhes-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .detalhes-cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .detail-card {
+        background: linear-gradient(
+          135deg,
+          var(--gold-primary),
+          var(--gold-light)
+        );
+        color: var(--white);
+        padding: 25px 20px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+      }
+      .detail-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4);
+      }
+      .detail-card h3 {
+        font-size: 16px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .detail-card p {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .detalhes-image {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        background: var(--white);
+      }
+      .detalhes-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .section-comprar {
+        background: var(--bg-light);
+        padding: 100px 8%;
+        position: relative;
+        z-index: 100;
+      }
+      .comprar-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .comprar-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+      .comprar-card {
+        background: linear-gradient(
+          135deg,
+          var(--gold-primary),
+          var(--gold-light)
+        );
+        color: var(--white);
+        padding: 30px 25px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+      }
+      .comprar-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4);
+      }
+      .comprar-card h3 {
+        font-size: 19px;
+        font-weight: 800;
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+      }
+      .comprar-card p {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .section-galeria {
+        background: var(--white);
+        padding: 100px 8%;
+        position: relative;
+        z-index: 100;
+      }
+      .galeria-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .galeria-card {
+        position: relative;
+        max-width: 1100px;
+        margin: 0 auto;
+        background: 0 0;
+        padding: 0;
+      }
+      .galeria-viewport {
+        position: relative;
+        width: 100%;
+        height: 520px;
+        overflow: hidden;
+        background: 0 0;
+        border-radius: 22px;
+      }
+      .galeria-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        pointer-events: none;
+      }
+      .galeria-slide.is-active {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+        z-index: 2;
+      }
+      .galeria-slide.is-prev {
+        opacity: 0;
+        transform: translateX(-30px);
+        z-index: 1;
+      }
+      .galeria-slide img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 22px;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+      }
+      .galeria-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        font-size: 34px;
+        font-weight: 900;
+        color: #fff;
+        background: rgba(184, 134, 11, 0.95);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+      .galeria-btn:hover {
+        background: var(--gold-dark);
+        transform: translateY(-50%) scale(1.1);
+      }
+      .galeria-btn.prev {
+        left: 20px;
+      }
+      .galeria-btn.next {
+        right: 20px;
+      }
+      .galeria-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .galeria-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        background: rgba(184, 134, 11, 0.35);
+        transition: all 0.3s ease;
+      }
+      .galeria-dot.active {
+        background: rgba(184, 134, 11, 0.95);
+        transform: scale(1.2);
+      }
+      .section-localizacao {
+        background: var(--bg-light);
+        padding: 100px 8%;
+        position: relative;
+        z-index: 100;
+      }
+      .localizacao-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .map-container {
+        width: 100%;
+        height: 500px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        background: var(--white);
+      }
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+      .section-contato {
+        background: linear-gradient(
+          135deg,
+          var(--gold-secondary),
+          var(--gold-primary)
+        );
+        padding: 100px 8%;
+        position: relative;
+        z-index: 100;
+      }
+      .contato-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .contato-text {
+        text-align: center;
+        color: var(--white);
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 50px;
+        line-height: 1.6;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .contato-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .contato-form input {
+        width: 100%;
+        padding: 18px 25px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-family: Montserrat, sans-serif;
+        margin-bottom: 18px;
+        transition: all 0.3s ease;
+      }
+      .contato-form input:focus {
+        outline: 3px solid var(--white);
+        transform: scale(1.02);
+      }
+      .contato-form input::placeholder {
+        color: var(--text-muted);
+      }
+      .contato-form button {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px;
+        background: var(--gold-primary);
+        color: var(--white);
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 20px auto 0;
+        text-transform: uppercase;
+        font-family: Montserrat, sans-serif;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+      .contato-form button:hover {
+        background: var(--gold-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+      }
+      .footer {
+        background: var(--white);
+        padding: 60px 8% 40px;
+        border-top: 1px solid #e0e0e0;
+        position: relative;
+        z-index: 100;
+      }
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      .social-icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: #c9a961;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 25px rgba(201, 169, 97, 0.3);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .social-icon svg {
+        width: 22px;
+        height: 22px;
+        fill: #fff;
+      }
+      .social-icon:hover {
+        background: #b8941f;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 12px 30px rgba(201, 169, 97, 0.4);
+      }
+      .footer-divider {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan-primary),
+          transparent
+        );
+        margin: 0 0 40px 0;
+      }
+      .footer-logo {
+        margin-bottom: 25px;
+      }
+      .footer-logo img {
+        height: 80px;
+        display: inline-block;
+      }
+      .footer-company {
+        margin-bottom: 30px;
+      }
+      .footer-company h4 {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+      }
+      .footer-company p {
+        font-size: 15px;
+        color: var(--text-light);
+        line-height: 1.7;
+        margin: 5px 0;
+      }
+      .footer-legal {
+        margin-top: 30px;
+      }
+      .footer-legal p {
+        font-size: 14px;
+        color: var(--text-muted);
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+      .btn-termos {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 35px;
+        border-radius: 50px;
+        background: var(--cyan-primary);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(0, 172, 193, 0.3);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .btn-termos:hover {
+        background: var(--cyan-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 172, 193, 0.4);
+      }
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        50% {
+          box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
+        }
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+      }
+      .whatsapp-float svg {
+        width: 40px;
+        height: 40px;
+        fill: var(--white);
+      }
+      @media (max-width: 1200px) {
+        .hero {
+          flex-direction: column;
+          justify-content: center;
+          padding: 80px 5%;
+        }
+        .hero-logo-container {
+          position: static;
+          transform: none;
+          margin-bottom: 40px;
+          max-width: 260px;
+        }
+        .hero-form-wrapper {
+          max-width: 400px;
+        }
+        .sobre-container {
+          grid-template-columns: 1fr;
+          gap: 50px;
+        }
+        .detalhes-cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .comprar-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .section-title h2 {
+          font-size: 36px;
+        }
+        .nav-menu-wrapper {
+          padding: 20px 0;
+        }
+        .nav-menu {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+          padding: 0 20px;
+          max-width: 100%;
+        }
+        .nav-menu button {
+          padding: 14px 20px;
+          font-size: 14px;
+          max-width: 100%;
+          width: 100%;
+        }
+        .hero-form-title {
+          font-size: 18px;
+        }
+        .sobre-content h2 {
+          font-size: 38px;
+        }
+        .detalhes-cards {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          max-width: 520px;
+        }
+        .section-peek {
+          height: 300px;
+        }
+        .peek-bg {
+          inset: -60px 0;
+          transform: scale(1.15);
+        }
+        .galeria-viewport {
+          height: 400px;
+        }
+        .galeria-btn {
+          width: 50px;
+          height: 50px;
+          font-size: 28px;
+        }
+        .galeria-btn.prev {
+          left: 10px;
+        }
+        .galeria-btn.next {
+          right: 10px;
+        }
+        .contato-text {
+          font-size: 22px;
+        }
+        .map-container {
+          height: 380px;
+        }
+        .whatsapp-float {
+          width: 60px;
+          height: 60px;
+          bottom: 20px;
+          right: 20px;
+        }
+        .whatsapp-float svg {
+          width: 32px;
+          height: 32px;
+        }
+        .footer-social {
+          gap: 15px;
+        }
+        .social-icon {
+          width: 50px;
+          height: 50px;
+        }
+        .social-icon svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .header-logo {
+          height: 50px;
+        }
+        .hero {
+          padding: 60px 5%;
+        }
+        .section-title h2 {
+          font-size: 28px;
+        }
+        .nav-menu {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          padding: 0 15px;
+        }
+        .nav-menu button {
+          font-size: 13px;
+          padding: 12px 15px;
+        }
+        .hero-form {
+          padding: 20px;
+        }
+        .galeria-viewport {
+          height: 320px;
+        }
+        .galeria-btn {
+          width: 44px;
+          height: 44px;
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img src="logo/logo.png" alt="RE/MAX Seu Imóvel" class="header-logo" />
+    </header>
+    <section class="hero">
+      <div class="hero-logo-container">
+        <img src="logo/logo1.png" alt="Paradiso Logo" class="hero-logo" />
+      </div>
+      <div class="hero-form-wrapper">
+        <h2 class="hero-form-title">
+          Cadastre-se e receba todas as informações sobre nosso empreendimento!
+        </h2>
+        <form class="hero-form" id="heroForm" novalidate>
+          <input type="text" name="nome" placeholder="* Nome" required />
+          <input type="email" name="email" placeholder="* Email" required />
+          <input type="tel" name="telefone" placeholder="* Telefone" required />
+          <button type="submit" class="hero-form-button">Enviar</button>
+        </form>
+      </div>
+    </section>
+    <div class="nav-menu-wrapper">
+      <nav class="nav-menu">
+        <button onclick="scrollToSection('detalhes')">Detalhes</button>
+        <button onclick="scrollToSection('galeria')">Galeria</button>
+        <button onclick="scrollToSection('endereco')">Endereço</button>
+        <button onclick="scrollToSection('contato')">Contato</button>
+      </nav>
+    </div>
+    <section class="section-sobre">
+      <div class="sobre-container">
+        <div class="sobre-content">
+          <h2>PARADISO</h2>
+          <p>
+            O <span class="highlight">Paradiso</span> é um loteamento
+            residencial de alto padrão que reúne
+            <span class="highlight">segurança, conforto e beleza</span>. Cercado
+            de natureza e paisagens naturais, seu novo destino vai ser o cenário
+            perfeito para construir seus melhores sonhos.
+          </p>
+        </div>
+        <div class="sobre-map">
+          <img src="localizaçao.png" alt="Mapa de localização do Paradiso" />
+        </div>
+      </div>
+    </section>
+    <section class="section-peek">
+      <div class="peek-bg" id="peekBg"></div>
+    </section>
+    <section class="section-detalhes" id="detalhes">
+      <div class="detalhes-container">
+        <div class="section-title"><h2>DETALHES</h2></div>
+        <div class="detalhes-cards">
+          <div class="detail-card">
+            <h3>Terreno</h3>
+            <p>15,57 hectares</p>
+          </div>
+          <div class="detail-card">
+            <h3>Número de Lotes</h3>
+            <p>284</p>
+          </div>
+          <div class="detail-card">
+            <h3>Lotes m²</h3>
+            <p>450 m²</p>
+          </div>
+          <div class="detail-card">
+            <h3>Localização</h3>
+            <p>Icaraizinho de Amontada<br />Às margens da CE 176</p>
+          </div>
+        </div>
+        <div class="detalhes-image">
+          <img
+            src="vista da areaaaaaa.png"
+            alt="Vista aérea do empreendimento"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="section-comprar">
+      <div class="comprar-container">
+        <div class="section-title"><h2>POR QUE COMPRAR NA PLANTA?</h2></div>
+        <div class="comprar-cards">
+          <div class="comprar-card">
+            <h3>Valorização Garantida</h3>
+            <p>Invista agora e colha os frutos da valorização do imóvel.</p>
+          </div>
+          <div class="comprar-card">
+            <h3>Personalização Exclusiva</h3>
+            <p>Ótimas opções de customização para seu projeto.</p>
+          </div>
+          <div class="comprar-card">
+            <h3>Condições Especiais</h3>
+            <p>
+              Ofertas exclusivas para quem embarcar nesta jornada desde o
+              início.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-galeria" id="galeria">
+      <div class="galeria-container">
+        <div class="section-title"><h2>GALERIA</h2></div>
+        <div class="galeria-card">
+          <div class="galeria-viewport" id="galeriaViewport">
+            <div class="galeria-slide">
+              <img src="vista da areaaaaaa.png" alt="Vista 1" />
+            </div>
+            <div class="galeria-slide">
+              <img src="area2.png" alt="Vista 2" />
+            </div>
+            <div class="galeria-slide">
+              <img src="area3.png" alt="Vista 3" />
+            </div>
+          </div>
+          <button class="galeria-btn prev" type="button" id="galPrev">‹</button>
+          <button class="galeria-btn next" type="button" id="galNext">›</button>
+          <div class="galeria-dots" id="galDots"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-localizacao" id="endereco">
+      <div class="localizacao-container">
+        <div class="section-title"><h2>LOCALIZAÇÃO</h2></div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=Paradiso+Icaraí,+CE-176,+KM+07,+Icaraí,+Amontada+-+CE&output=embed"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <section class="section-contato" id="contato">
+      <div class="contato-container">
+        <p class="contato-text">
+          Este é o momento de tornar seu sonho uma realidade! Entre em contato
+          para descobrir todos os detalhes do seu futuro lar.
+        </p>
+        <form class="contato-form" id="contatoForm" novalidate>
+          <input type="text" name="nome" placeholder="* Nome" required />
+          <input type="email" name="email" placeholder="* Email" required />
+          <input type="tel" name="telefone" placeholder="* Telefone" required />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-social">
+          <a href="#" class="social-icon" target="_blank" aria-label="Facebook">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="social-icon" target="_blank" aria-label="Twitter">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="social-icon"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="social-icon" target="_blank" aria-label="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-logo">
+          <img src="logo/logo.png" alt="RE/MAX Seu Imóvel" />
+        </div>
+        <div class="footer-company">
+          <h4>RE/MAX Seu Imóvel</h4>
+          <p>Avenida Washington Soares, 8660 B</p>
+          <p>Messejana, Fortaleza - CE, 60841-032</p>
+        </div>
+        <div class="footer-legal">
+          <p>Copyright © Remax Seu Imóvel – Todos os direitos reservados.</p>
+          <a
+            href="https://web.seuimovel.com.br/termos-e-politicas"
+            class="btn-termos"
+            target="_blank"
+            >Acessar termos e políticas</a
+          >
+        </div>
+      </div>
+    </footer>
+    <a href="https://wa.me/558598118888" class="whatsapp-float" target="_blank">
+      <svg viewBox="0 0 32 32">
+        <path
+          d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.188-2.113c2.35 1.312 5.019 2.113 7.812 2.113 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.5c-2.547 0-5.043-0.725-7.2-2.1l-0.518-0.3-5.362 1.387 1.4-5.213-0.337-0.55c-1.512-2.238-2.313-4.838-2.313-7.537 0-7.45 6.05-13.5 13.5-13.5s13.5 6.05 13.5 13.5-6.05 13.5-13.5 13.5zM22.988 19.35c-0.387-0.2-2.3-1.137-2.662-1.262-0.363-0.138-0.625-0.2-0.887 0.2s-1.025 1.262-1.25 1.525c-0.237 0.262-0.462 0.3-0.85 0.1s-1.65-0.612-3.137-1.938c-1.163-1.037-1.95-2.325-2.175-2.713-0.225-0.387-0.025-0.6 0.175-0.787 0.175-0.175 0.387-0.463 0.575-0.688 0.2-0.225 0.263-0.387 0.4-0.637 0.137-0.263 0.063-0.488-0.038-0.688s-0.887-2.137-1.213-2.925c-0.325-0.775-0.65-0.663-0.887-0.675-0.225-0.012-0.487-0.012-0.75-0.012s-0.7 0.1-1.063 0.488c-0.363 0.387-1.387 1.35-1.387 3.3s1.413 3.825 1.613 4.088c0.2 0.262 2.8 4.275 6.788 5.988 0.95 0.412 1.688 0.65 2.263 0.837 0.95 0.3 1.813 0.262 2.5 0.162 0.762-0.112 2.3-0.937 2.625-1.85 0.325-0.912 0.325-1.688 0.225-1.85-0.087-0.175-0.35-0.275-0.737-0.475z"
+        />
+      </svg>
+    </a>
+    <script>
+      const W = "https://automacao.system.seuimovel.com.br/webhook/lead-site";
+      async function sendToWebhook(p) {
+        const b = new URLSearchParams();
+        b.append("nome", p.nome || "");
+        b.append("email", p.email || "");
+        b.append("telefone", p.telefone || "");
+        b.append("origem", p.origem || "");
+        const r = await fetch(W, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body: b,
+        });
+        if (!r.ok) {
+          const t = await r.text().catch(() => "");
+          throw new Error(`Webhook erro ${r.status}: ${t}`);
+        }
+        return true;
+      }
+      function bindForm(formId, origem) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          const originalText = btn?.textContent || "Enviar";
+          const nome =
+            form.querySelector('input[name="nome"]')?.value?.trim() || "";
+          const email =
+            form.querySelector('input[name="email"]')?.value?.trim() || "";
+          const telefone =
+            form.querySelector('input[name="telefone"]')?.value?.trim() || "";
+          if (!nome || !email || !telefone) {
+            alert("⚠️ Preencha nome, email e telefone.");
+            return;
+          }
+          try {
+            if (btn) {
+              btn.disabled = true;
+              btn.textContent = "ENVIANDO...";
+            }
+            await sendToWebhook({ nome, email, telefone, origem });
+            alert("✅ Cadastro enviado! Entraremos em contato em breve.");
+            form.reset();
+          } catch (err) {
+            console.error("❌ Erro ao enviar:", err);
+            alert(
+              "❌ Não consegui enviar agora. Abra o Console (F12) e me mande o erro."
+            );
+          } finally {
+            if (btn) {
+              btn.disabled = false;
+              btn.textContent = originalText;
+            }
+          }
+        });
+      }
+      function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        bindForm("heroForm", "Paradiso - Hero");
+        bindForm("contatoForm", "Paradiso - Contato");
+        const viewport = document.getElementById("galeriaViewport");
+        const prev = document.getElementById("galPrev");
+        const next = document.getElementById("galNext");
+        const dotsWrap = document.getElementById("galDots");
+        if (viewport && prev && next && dotsWrap) {
+          const slides = Array.from(
+            viewport.querySelectorAll(".galeria-slide")
+          );
+          let index = 0;
+          let isAnimating = false;
+          dotsWrap.innerHTML = "";
+          const dots = slides.map((_, i) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "galeria-dot" + (i === 0 ? " active" : "");
+            dot.addEventListener("click", () => goTo(i));
+            dotsWrap.appendChild(dot);
+            return dot;
+          });
+          function setActiveDot(i) {
+            dots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+          }
+          function showSlide(newIndex, direction) {
+            if (isAnimating) return;
+            isAnimating = true;
+            const oldIndex = index;
+            index = (newIndex + slides.length) % slides.length;
+            slides.forEach((s) => s.classList.remove("is-active", "is-prev"));
+            if (direction > 0) {
+              slides[oldIndex].classList.add("is-prev");
+              slides[index].classList.add("is-active");
+            } else {
+              slides[oldIndex].classList.add("is-prev");
+              slides[index].classList.add("is-active");
+            }
+            setActiveDot(index);
+            setTimeout(() => {
+              isAnimating = false;
+            }, 400);
+          }
+          function goTo(newIndex) {
+            const direction = newIndex > index ? 1 : -1;
+            showSlide(newIndex, direction);
+          }
+          prev.addEventListener("click", () => goTo(index - 1));
+          next.addEventListener("click", () => goTo(index + 1));
+          slides[0].classList.add("is-active");
+          setActiveDot(0);
+        }
+      });
+    </script>
+  </body>
+</html>
