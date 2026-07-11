@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+<!-- Google Tag Manager (OnixCloud - Grupo L2) --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PHBDZKKZ');</script><!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paradiso - Icaraí de Amontada | RE/MAX Seu Imóvel</title>
@@ -1194,5 +1195,74 @@
         }
       });
     </script>
-  </body>
+  <script>window.__ONIX = {"funil":"negocio","site":"icarai","origem":"Icarai","assunto":"Empreendimento Icarai","forms":["heroForm","contatoForm"]};</script>
+<!-- OnixCloud integração: lead->funil (dual-post) + tracking first-party. Config em window.__ONIX. -->
+<script>
+(function(){
+  var CFG = window.__ONIX || {};
+  var BRIDGE = "https://app.onixcloud.com.br/api/site-lead/";
+  var TRACK  = "https://app.onixcloud.com.br/api/track/";
+  function post(url, obj){
+    var s = JSON.stringify(obj);
+    try{
+      if(navigator.sendBeacon){ return navigator.sendBeacon(url, new Blob([s],{type:"application/json"})); }
+    }catch(e){}
+    try{ fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:s,keepalive:true}); }catch(e){}
+  }
+  // visitor_id first-party (cookie onix_vid, 365d)
+  function vid(){
+    try{
+      var m = document.cookie.match(/(?:^|;\s*)onix_vid=([^;]+)/);
+      if(m) return decodeURIComponent(m[1]);
+      var id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : (Date.now()+"-"+Math.random().toString(16).slice(2));
+      document.cookie = "onix_vid="+id+"; path=/; max-age=31536000; SameSite=Lax; Secure";
+      return id;
+    }catch(e){ return "novid"; }
+  }
+  var VID = vid();
+  // pageview (sem PII na URL: só path/host + referrer)
+  try{ post(TRACK+"pageview", {v:VID, u:location.href, r:document.referrer||"", s:CFG.site||location.hostname}); }catch(e){}
+
+  if(CFG.funil){
+    function field(form, kind){
+      var byName = form.querySelector('[name="'+kind+'"]');
+      if(byName && byName.value) return byName.value.trim();
+      var sel = kind==='email' ? 'input[type=email]' : kind==='telefone' ? 'input[type=tel]' : 'input[type=text],input:not([type])';
+      var el = form.querySelector(sel);
+      return (el && el.value) ? el.value.trim() : "";
+    }
+    function bind(form){
+      if(!form || form.__onixBound) return; form.__onixBound = 1;
+      form.addEventListener('submit', function(e){
+        // captura ANTES de qualquer reset do handler original; evita reload nativo
+        if(CFG.notify) { try{ e.preventDefault(); }catch(x){} }
+        var nome = field(form,'nome'), email = field(form,'email'), telefone = field(form,'telefone');
+        if((nome||"").length < 2) return;
+        var hp = (form.querySelector('[name=hp]')||{}).value||"";
+        post_lead(nome, email, telefone, hp, form);
+        if(CFG.notify){ try{ alert("✅ Cadastro enviado! Em breve entraremos em contato."); form.reset(); }catch(x){} }
+      }, true); // capture
+    }
+    function post_lead(nome, email, telefone, hp, form){
+      var body = JSON.stringify({
+        nome:nome, email:email, telefone:telefone, hp:hp,
+        origem:(CFG.origem||CFG.site||"site").slice(0,40),
+        assunto:CFG.assunto||"", site:CFG.site||""
+      });
+      fetch(BRIDGE+CFG.funil, {method:"POST", headers:{"Content-Type":"application/json"}, body:body, keepalive:true})
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(j){ if(j && j.id){ post(TRACK+"lead-link", {v:VID, lead_id:j.id, funil:CFG.funil, s:CFG.site||""}); } })
+        .catch(function(){});
+    }
+    function run(){
+      var forms = CFG.forms
+        ? CFG.forms.map(function(id){ return document.getElementById(id); })
+        : Array.prototype.slice.call(document.querySelectorAll('form'));
+      forms.forEach(bind);
+    }
+    if(document.readyState !== 'loading') run(); else document.addEventListener('DOMContentLoaded', run);
+  }
+})();
+</script>
+</body>
 </html>
